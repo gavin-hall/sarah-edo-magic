@@ -4,12 +4,14 @@
       place: page === 'place',
       group: page === 'group',
       index: page === 'index',
+      job: page === 'job'
     }"
   >
     <transition-group name="bk" tag="div" class="bk-img">
       <div key="img1" v-if="page === 'index'" class="header-img1"></div>
       <div key="img2" v-else-if="page === 'place'" class="header-img2"></div>
       <div key="img3" v-else class="header-img3"></div>
+      <div key="img4" v-else class="header-img2"></div>
     </transition-group>
 
     <div class="nav-wrapper">
@@ -21,21 +23,16 @@
           <nuxt-link to="/place"
             ><li>{{ selectedUser.name | firstName }}'s Places</li></nuxt-link
           >
+          <nuxt-link to="/jobs"
+            ><li>{{ selectedUser.name | firstName }}'s Jobs</li></nuxt-link
+          >
           <nuxt-link to="/group"
-            ><li>
-              {{ selectedUser.name | firstName }}'s Group Trips
-            </li></nuxt-link
+            ><li>{{ selectedUser.name | firstName }}'s Group Trips</li></nuxt-link
           >
         </ul>
 
         <div @click="menuOpened = !menuOpened">
-          <icon-base
-            class="menu"
-            icon-name="menu"
-            icon-color="white"
-            width="28"
-            height="28"
-          >
+          <icon-base class="menu" icon-name="menu" icon-color="white" width="28" height="28">
             <icon-three-dot />
           </icon-base>
         </div>
@@ -50,82 +47,82 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex";
-import { TimelineMax, Expo, Sine, Back } from "gsap";
-import AppStats from "./AppStats.vue";
-import IconBase from "./IconBase.vue";
-import IconThreeDot from "./IconThreeDot.vue";
-import AppMenuDrawer from "./AppMenuDrawer.vue";
-import AppNavTransition from "./AppNavTransition.vue";
+import { mapState, mapGetters } from 'vuex'
+import { TimelineMax, Expo, Sine, Back } from 'gsap'
+import AppStats from './AppStats.vue'
+import IconBase from './IconBase.vue'
+import IconThreeDot from './IconThreeDot.vue'
+import AppMenuDrawer from './AppMenuDrawer.vue'
+import AppNavTransition from './AppNavTransition.vue'
 
 export default {
   data() {
     return {
       saved: false,
-      menuOpened: false,
-    };
+      menuOpened: false
+    }
   },
   components: {
     AppStats,
     IconBase,
     IconThreeDot,
     AppMenuDrawer,
-    AppNavTransition,
+    AppNavTransition
   },
   methods: {
     openMenu() {
-      TweenMax.to(".first", 0.2, {
+      TweenMax.to('.first', 0.2, {
         x: 18,
-        ease: Sine.easeOut,
-      });
-      TweenMax.to(".last", 0.2, {
+        ease: Sine.easeOut
+      })
+      TweenMax.to('.last', 0.2, {
         x: -18,
-        ease: Sine.easeOut,
-      });
+        ease: Sine.easeOut
+      })
       TweenMax.staggerTo(
-        ".first, .middle, .last",
+        '.first, .middle, .last',
         0.2,
         {
-          fill: "#7eebe6",
-          ease: Sine.easeOut,
+          fill: '#7eebe6',
+          ease: Sine.easeOut
         },
         0.04
-      );
+      )
     },
     closeMenu() {
-      TweenMax.to(".first", 0.2, {
+      TweenMax.to('.first', 0.2, {
         x: 0,
-        ease: Sine.easeIn,
-      });
-      TweenMax.to(".last", 0.2, {
+        ease: Sine.easeIn
+      })
+      TweenMax.to('.last', 0.2, {
         x: 0,
-        ease: Sine.easeIn,
-      });
-      TweenMax.to(".first, .middle, .last", 0.2, {
-        fill: "#fff",
-      });
-    },
+        ease: Sine.easeIn
+      })
+      TweenMax.to('.first, .middle, .last', 0.2, {
+        fill: '#fff'
+      })
+    }
   },
   computed: {
-    ...mapState(["page"]),
-    ...mapGetters(["selectedUser"]),
+    ...mapState(['page']),
+    ...mapGetters(['selectedUser'])
   },
   filters: {
     firstName(input) {
-      var lastIndex = input.lastIndexOf(" ");
-      return input.substring(0, lastIndex);
-    },
+      var lastIndex = input.lastIndexOf(' ')
+      return input.substring(0, lastIndex)
+    }
   },
   watch: {
     menuOpened(val) {
       if (val) {
-        this.openMenu();
+        this.openMenu()
       } else {
-        this.closeMenu();
+        this.closeMenu()
       }
-    },
-  },
-};
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -134,33 +131,16 @@ header {
   height: 300px;
   position: relative;
   &:before {
-    content: "";
+    content: '';
     z-index: 10;
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background: -moz-radial-gradient(
-      center,
-      ellipse cover,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0) 36%,
-      rgba(0, 0, 0, 0.65) 100%
-    ); /* FF3.6-15 */
-    background: -webkit-radial-gradient(
-      center,
-      ellipse cover,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0) 36%,
-      rgba(0, 0, 0, 0.65) 100%
-    ); /* Chrome10-25,Safari5.1-6 */
-    background: radial-gradient(
-      ellipse at center,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0) 36%,
-      rgba(0, 0, 0, 0.65) 100%
-    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: -moz-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 36%, rgba(0, 0, 0, 0.65) 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 36%, rgba(0, 0, 0, 0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 36%, rgba(0, 0, 0, 0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient(
         startColorstr='#00000000',
         endColorstr='#a6000000',
@@ -169,7 +149,7 @@ header {
     opacity: 0.6;
   }
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     z-index: -1;
     top: 0;
@@ -189,15 +169,15 @@ header {
 }
 
 .header-img1 {
-  @include header("/header1.jpg");
+  @include header('/header1.jpg');
 }
 
 .header-img2 {
-  @include header("/header2.jpg");
+  @include header('/header2.jpg');
 }
 
 .header-img3 {
-  @include header("/header3.jpg");
+  @include header('/header3.jpg');
 }
 
 .fade-in {
@@ -208,7 +188,7 @@ header {
 /* ----------------------------------------------
  * Generated by Animista on 2022-2-5 4:39:35
  * Licensed under FreeBSD License.
- * See http://animista.net/license for more info. 
+ * See http://animista.net/license for more info.
  * w: http://animista.net, t: @cssanimista
  * ---------------------------------------------- */
 
@@ -242,7 +222,7 @@ header {
 /* ----------------------------------------------
  * Generated by Animista on 2022-2-5 4:39:48
  * Licensed under FreeBSD License.
- * See http://animista.net/license for more info. 
+ * See http://animista.net/license for more info.
  * w: http://animista.net, t: @cssanimista
  * ---------------------------------------------- */
 

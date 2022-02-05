@@ -1,16 +1,5 @@
 <template>
   <main>
-    <div class="places" ref="places">
-      <div v-for="place in places" :key="place.name" class="location">
-        <img :src="place.img" :alt="place.name" />
-        <h2>{{ place.name }}</h2>
-        <p>
-          <strong>Rating: {{ place.rating }}</strong>
-        </p>
-        <p>{{ place.description }}</p>
-        <hr />
-      </div>
-    </div>
     <div class="jobs" ref="jobs">
       <div v-for="job in jobs" :key="job.name" class="location">
         <img :src="job.img" :alt="job.name" />
@@ -41,7 +30,7 @@ export default {
     IconBase,
     IconMapPin
   },
-  computed: mapState(['page', 'users', 'places', 'jobs'])
+  computed: mapState(['page', 'users', 'jobs'])
 }
 </script>
 
@@ -58,18 +47,6 @@ main {
   margin-top: 120px;
 }
 
-.places {
-  img {
-    float: left;
-    margin: 0 15px 15px 0;
-  }
-  p {
-    margin-top: 10px;
-  }
-  .location {
-    padding: 10px 0;
-  }
-}
 .jobs {
   img {
     float: left;

@@ -29,19 +29,19 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-import IconBase from "~/components/IconBase.vue";
-import IconMapPin from "~/components/IconMapPin.vue";
-import AppStarRating from "~/components/AppStarRating.vue";
+import { mapState } from 'vuex'
+import IconBase from '~/components/IconBase.vue'
+import IconMapPin from '~/components/IconMapPin.vue'
+import AppStarRating from '~/components/AppStarRating.vue'
 
 export default {
   components: {
     IconBase,
     IconMapPin,
-    AppStarRating,
+    AppStarRating
   },
-  computed: mapState(["page", "users", "places"]),
-};
+  computed: mapState(['page', 'users', 'places'])
+}
 </script>
 
 <style lang="scss" scoped>
@@ -63,7 +63,7 @@ p,
 }
 
 .main-img {
-  background: url("/header1.jpg") center center;
+  background: url('/header1.jpg') center center;
   background-size: cover;
   width: 100%;
   height: 240px;

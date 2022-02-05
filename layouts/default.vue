@@ -7,17 +7,16 @@
 </template>
 
 <script>
-import AppNavigation from "~/components/AppNavigation.vue";
-import AppFooter from "~/components/AppFooter.vue";
+import AppNavigation from '~/components/AppNavigation.vue'
+import AppFooter from '~/components/AppFooter.vue'
 
 export default {
   components: {
     AppNavigation,
-    AppFooter,
-  },
-};
+    AppFooter
+  }
+}
 </script>
-
 
 <style>
 /* common styles shared through the application */
@@ -25,7 +24,7 @@ export default {
 body {
   background: white;
   color: #333;
-  font-family: "DM Sans", sans;
+  font-family: 'DM Sans', sans;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -65,7 +64,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "DM Sans", sans;
+  font-family: 'DM Sans', sans;
   font-weight: 600;
 }
 
@@ -85,6 +84,9 @@ main {
 }
 
 .places {
+  width: 60%;
+}
+.jobs {
   width: 60%;
 }
 
@@ -113,6 +115,9 @@ hr {
     flex-direction: column;
   }
   .places {
+    width: 100%;
+  }
+  .jobs {
     width: 100%;
   }
   aside.sidebar {

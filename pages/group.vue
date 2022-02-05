@@ -16,27 +16,35 @@
     <aside class="sidebar">
       <h3>
         <icon-base icon-name="calendar">
-          <icon-calendar />
-        </icon-base>Schedule
+          <icon-calendar /> </icon-base
+        >Schedule
       </h3>
       <p class="top">Sunday</p>
-      <p>Arrival: We settled in and decided to go snorkeling. We saw spotted dolphins, tons of whales - one whale went right under the boat, and, of course, plenty of sea turtles. The snorkeling area is a little small and can get crowded, but we still had great opportunities to watch the turtles. The crew was terrific - Jason, Jackson, and Shane. We would definitely recommend this activity, and will do it again if we ever get back to Hawaii!</p>
+      <p>
+        Arrival: We settled in and decided to go snorkeling. We saw spotted dolphins, tons of whales - one whale went right under the boat, and, of course, plenty of sea turtles. The snorkeling area
+        is a little small and can get crowded, but we still had great opportunities to watch the turtles. The crew was terrific - Jason, Jackson, and Shane. We would definitely recommend this
+        activity, and will do it again if we ever get back to Hawaii!
+      </p>
       <p class="top">Monday</p>
-      <p>After such an exciting first day, we decided to take it a bit easier and just get a nice lunch as our day activity. Had a wonderful time getting an opportunity to walk around a few blocks of Ala Moana and sampling some of the local eats that you can't really get back home. Every stop had something new and interesting to try, and there wasn't a single thing I tried that I really disliked.</p>
+      <p>
+        After such an exciting first day, we decided to take it a bit easier and just get a nice lunch as our day activity. Had a wonderful time getting an opportunity to walk around a few blocks of
+        Ala Moana and sampling some of the local eats that you can't really get back home. Every stop had something new and interesting to try, and there wasn't a single thing I tried that I really
+        disliked.
+      </p>
     </aside>
   </main>
 </template>
 
 <script>
-import IconBase from "~/components/IconBase.vue";
-import IconCalendar from "~/components/IconCalendar.vue";
+import IconBase from '~/components/IconBase.vue'
+import IconCalendar from '~/components/IconCalendar.vue'
 
 export default {
   components: {
     IconBase,
-    IconCalendar,
-  },
-};
+    IconCalendar
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -60,7 +68,7 @@ $class-slug: item !default;
 
 @for $i from 1 through 6 {
   .#{$class-slug}#{$i} {
-    background: url("/hawaii#{$i}.jpg") center center no-repeat;
+    background: url('/hawaii#{$i}.jpg') center center no-repeat;
     background-size: cover;
   }
 }

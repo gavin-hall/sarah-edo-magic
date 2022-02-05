@@ -1,11 +1,6 @@
 <template>
   <transition-group tag="div">
-    <div v-for="(user, i) in users" 
-      @click="changeUser(i)"
-      :key="user.name" 
-      :class="[user === selectedUser ? activeUser : secondaryUser, `profile-${i}`]"
-      :ref="`profile${i}`"
-    > 
+    <div v-for="(user, i) in users" @click="changeUser(i)" :key="user.name" :class="[user === selectedUser ? activeUser : secondaryUser, `profile-${i}`]" :ref="`profile${i}`">
       <div class="online"></div>
       <img :src="user.img" />
     </div>
@@ -84,8 +79,7 @@ export default {
       this.$store.commit('changeUser', i)
       if (this.page === 'group') {
         const el = this.$refs.profile0[0]
-        el.style.transform = `translate3d(${-70 +
-          this.indexedUser * 55}px, -70px, 0) scale(0.25)`
+        el.style.transform = `translate3d(${-70 + this.indexedUser * 55}px, -70px, 0) scale(0.25)`
       }
     },
     toggleFollow() {

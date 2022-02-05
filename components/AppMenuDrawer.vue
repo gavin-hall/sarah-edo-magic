@@ -1,21 +1,16 @@
 <template>
   <transition mode="out-in" name="menu">
     <div class="menudrawer" v-if="menuOpened">
-      <nuxt-link exact to="/"
-        >{{ selectedUser.name | firstName }}'s Home</nuxt-link
-      ><br />
-      <nuxt-link to="/place"
-        >{{ selectedUser.name | firstName }}'s Places</nuxt-link
-      ><br />
-      <nuxt-link to="/group"
-        >{{ selectedUser.name | firstName }}'s Group Trips</nuxt-link
-      >
+      <nuxt-link exact to="/">{{ selectedUser.name | firstName }}'s Home</nuxt-link><br />
+      <nuxt-link to="/place">{{ selectedUser.name | firstName }}'s Places</nuxt-link><br />
+      <nuxt-link to="/jobs">{{ selectedUser.name | firstName }}'s Jobs</nuxt-link><br />
+      <nuxt-link to="/group">{{ selectedUser.name | firstName }}'s Group Trips</nuxt-link>
     </div>
   </transition>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex'
 
 export default {
   props: {
@@ -25,15 +20,15 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["selectedUser"])
+    ...mapGetters(['selectedUser'])
   },
   filters: {
     firstName(input) {
-      var lastIndex = input.lastIndexOf(" ");
-      return input.substring(0, lastIndex);
+      var lastIndex = input.lastIndexOf(' ')
+      return input.substring(0, lastIndex)
     }
   }
-};
+}
 </script>
 
 <style scoped>
@@ -65,7 +60,7 @@ a:active {
 .menu-enter,
 .menu-leave-to {
   transform: scale(0.9);
-  transform-origin: "100% 0%";
+  transform-origin: '100% 0%';
   opacity: 0;
 }
 </style>

@@ -12,7 +12,7 @@ export const state = () => ({
       followers: 2748,
       photos: 94,
       days: 32,
-      trips: ["Honolulu", "Burmuda", "Los Cabos", "San Antonio"]
+      trips: ["Honolulu", "Burmuda", "Los Cabos", "San Antonio"],
     },
     {
       name: "Ben Allen",
@@ -74,7 +74,33 @@ export const state = () => ({
       rating: 7.4,
       img: "/peru.jpg",
       description:
-        "Wandered the cobblestone streets and quaint lanes of the town, which has been designated a UNESCO World Heritage site. A walking tour revealed historic architecture, colonial landmarks and alluring shops and restaurants."
+        ""
+    }
+  ],
+  jobs: [
+    {
+      name: "Task Manager",
+      stars: 4,
+      rating: 8.9,
+      img: "/honolulu.jpg",
+      description:
+        "Egestas tempor ante adipiscing adipiscing lectus donec rhoncus hendrerit aenean vestibulum scelerisque aliquam consectetur ullamcorper porta condimentum erat a fringilla hac ac consectetur malesuada curae."
+    },
+    {
+      name: "Traffic Attendent",
+      stars: 4,
+      rating: 7.8,
+      img: "/santorini.jpg",
+      description:
+        "Egestas tempor ante adipiscing adipiscing lectus donec rhoncus hendrerit aenean vestibulum scelerisque aliquam consectetur ullamcorper porta condimentum erat a fringilla hac ac consectetur malesuada curae."
+    },
+    {
+      name: "Sales Assistant",
+      stars: 3,
+      rating: 7.4,
+      img: "/peru.jpg",
+      description:
+        "Egestas tempor ante adipiscing adipiscing lectus donec rhoncus hendrerit aenean vestibulum scelerisque aliquam consectetur ullamcorper porta condimentum erat a fringilla hac ac consectetur malesuada curae."
     }
   ]
 });
